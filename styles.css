@@ -1,13 +1,23 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+h1 {
+    margin-bottom: 0.8em;
+}
+
 body {
     font-family: "Arial", sans-serif;
     background-color: #f4f4f4;
     color: #333;
     margin: 0;
-    padding: 0;
+    padding: 2rem 0;
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 form {
@@ -17,10 +27,10 @@ form {
     padding: 1.25em;
     border-radius: 0.5em;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    margin: auto;
 }
 
-input,
+input:not([type="radio"]):not([type="checkbox"]),
 select,
 textarea {
     width: 100%;
@@ -29,6 +39,20 @@ textarea {
     margin-bottom: 0.9375em;
     border: 1px solid #ddd;
     border-radius: 0.25em;
+    box-sizing: border-box;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5em;
+    vertical-align: middle;
+}
+
+fieldset {
+	margin-bottom: 30px;
+	padding: 5px;
+	border: none;
 }
 
 button {
@@ -42,4 +66,46 @@ button {
 
 button:hover {
     background-color: #005f73;
+}
+
+legend {
+	text-transform: uppercase;
+	font-weight: bold;
+	padding-bottom: 10px;
+	font-size: 1.2rem;
+	border-bottom: 1px solid black;
+}
+
+h3 {
+	margin: 0px 0px 10px 0px;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+}
+
+ul li {
+	margin-bottom: 0.5em;
+}
+
+textarea {
+	width: 100%;
+}
+
+.error {
+	color: red;
+	font-weight: bold;
+	font-size: 0.85em;
+	padding: 0;
+	margin-top: -0.6em;
+	margin-bottom: 0.8em;
+	display: none;
+}
+
+.input_error,
+input:not([type="radio"]):not([type="checkbox"]).input_error,
+select.input_error {
+    border: 1.5px solid red !important;
+    outline: none;
 }
