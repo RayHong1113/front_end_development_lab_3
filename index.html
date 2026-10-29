@@ -1,17 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="styles.css" />
-        <title>Event Registration Form</title>        
-        <script src="script.js"></script>
-    </head>
-    <body>
-        <form id="eventRegistrationForm" action="#">
-            <h1>Event Registration</h1>
-            <!-- Additional form elements will be added here -->
-            <button type="submit">Register</button>
-        </form>
-    </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles.css" />
+		<title>Event Registration Form</title>
+		<script src="script.js"></script>
+	</head>
+	<body>
+		<form id="eventRegistrationForm" action="https://httpbin.org/post" method="post" novalidate>
+			<h1>Tech Thursday Registration</h1>
+			<!-- Additional form elements will be added here -->
+			<fieldset>
+				<legend>Personal Information</legend>
+				<div class="formfield">
+					<label for="fname" class="pinfo">First Name:</label>
+					<input type="text" id="fname" name="fname" placeholder="Enter your first name" autofocus />
+					<div class="pinfo_error error" id="fname_error">Please enter your first name</div>
+				</div>
+				<div class="formfield">
+					<label for="lname" class="pinfo">Last Name:</label>
+					<input type="text" id="lname" name="lname" placeholder="Enter your last name" />
+					<div class="pinfo_error error" id="lname_error">Please enter your last name</div>
+				</div>
+				<div class="formfield">
+					<label for="email" class="pinfo">Email:</label>
+					<input type="email" id="email" name="email" placeholder="name@example.com" />
+					<div class="pinfo_error error" id="email_error">
+						Please enter a valid email address
+					</div>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend>Applicant Status</legend>
+				<h3>What is your current status?</h3>
+				<ul>
+					<li>
+						<input type="radio" name="status" id="student" value="Student" />
+						<label for="student">Student</label>
+					</li>
+					<li>
+						<input type="radio" name="status" id="employee" value="Employee" />
+						<label for="employee">Employed</label>
+					</li>
+					<li>
+						<input type="radio" name="status" id="other" value="Other" />
+						<label for="other">Other</label>
+					</li>
+				</ul>
+
+				<div class="error" id="status_error">* Please choose your status.</div>
+
+				<h3 id="Details">Detail Information</h3>
+
+				<div id="schooldiv" class="formfield">
+					<label for="school" class="major">School Name:</label>
+					<input type="text" id="school" name="school" size="30" maxlength="30" placeholder="Enter your school name" />
+					<div class="error" id="school_error">* Please enter your school name.</div>
+				</div>
+				<div id="companydiv">
+					<div class="formfield">
+						<label for="company" class="major">Company Name:</label>
+						<input type="text" id="company" name="company" size="30" maxlength="30" placeholder="Enter your company name" />
+						<div class="error" id="company_error">* Please enter your company name.</div>
+					</div>
+					<div class="formfield">
+						<label for="companyaddress" class="major">Company Address:</label>
+						<input type="text" id="companyaddress" name="companyaddress" size="30" maxlength="50" placeholder="Enter your company address" />
+						<div class="error" id="companyaddress_error">* Please enter your company address.</div>
+					</div>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend>Event Details</legend>
+				<!-- Dropdown Selection -->
+				<div class="formfield">
+					<label for="session">Preferred Session:</label>
+					<select id="session" name="session">
+						<option value="">-- Please select a session --</option>
+						<option value="morning">Morning Session (9:00 AM - 12:00 PM)</option>
+						<option value="afternoon">Afternoon Session (1:00 PM - 4:00 PM)</option>
+						<option value="fullday">Full Day Pass (9:00 AM - 4:00 PM)</option>
+					</select>
+					<div class="error" id="session_error">* Please select a preferred session.</div>
+				</div>
+
+				<!-- Number Input with Validation -->
+				<div class="formfield">
+					<label for="tickets">Number of Tickets (1 - 5):</label>
+					<input type="number" id="tickets" name="tickets" min="1" max="5" placeholder="Enter number of tickets (1-5)" />
+					<div class="error" id="tickets_error">* Please enter a valid number of tickets between 1 and 5.</div>
+				</div>
+
+				<!-- Checkboxes: Must select at least one -->
+				<div class="formfield">
+					<h3>Topics of Interest (Select at least one):</h3>
+					<ul>
+						<li>
+							<input type="checkbox" name="topic" id="topic_web" value="WebDev" />
+							<label for="topic_web">Web Development</label>
+						</li>
+						<li>
+							<input type="checkbox" name="topic" id="topic_ai" value="AI" />
+							<label for="topic_ai">Artificial Intelligence & ML</label>
+						</li>
+						<li>
+							<input type="checkbox" name="topic" id="topic_cloud" value="Cloud" />
+							<label for="topic_cloud">Cloud Computing</label>
+						</li>
+						<li>
+							<input type="checkbox" name="topic" id="topic_security" value="CyberSecurity" />
+							<label for="topic_security">Cyber Security</label>
+						</li>
+					</ul>
+					<div class="error" id="topic_error">* Please select at least one topic of interest.</div>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend>Suggestion</legend>
+				<label for="feedback">Do you have any suggestion for us?</label><br />
+				<textarea id="feedback" name="feedback" rows="8" cols="50" placeholder="Your suggestions here..."></textarea>
+			</fieldset>
+
+			<button type="reset">Reset</button>
+			<button type="submit">Register</button>
+		</form>
+	</body>
 </html>
